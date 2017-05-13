@@ -40,8 +40,7 @@ public class Solution {
   public static void main(String vargs[]) {
     BufferedReader txt = null;
     try {
-      txt = new BufferedReader(new FileReader(new File("/home/dblanken/Dropbox/code_stuff/workspace/hacker-rank-java/solutions/test_data.txt")));
-//      txt = new BufferedReader(new InputStreamReader(System.in));
+      txt = new BufferedReader(new InputStreamReader(System.in));
       String params[] = txt.readLine().split(" ");
       Integer arrSize = Integer.parseInt(params[ARR_SIZE]);
       Integer subArrSize = Integer.parseInt(params[SUB_ARR_SIZE]);
@@ -49,11 +48,17 @@ public class Solution {
       
       Solution run = new Solution();
       run.runSolution(subArrSize, vals);
-    } catch (FileNotFoundException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
     } catch (IOException e) {
       e.printStackTrace();
+    } finally {
+      if(txt != null) {
+        try {
+          txt.close();
+        } catch (IOException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
+      }
     }
   }
 }

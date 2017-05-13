@@ -1,9 +1,6 @@
 package com.hackerrank.algorithms.string.anagram;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashSet;
@@ -61,8 +58,7 @@ public class Solution {
   public static void main(String args[]) {
     BufferedReader txt = null;
     try {
-      txt = new BufferedReader(new FileReader(new File("/home/dblanken/Dropbox/code_stuff/workspace/hacker-rank-java/solutions/test_data.txt")));
-      //txt = new BufferedReader(new InputStreamReader(System.in));
+      txt = new BufferedReader(new InputStreamReader(System.in));
       String wordOne = txt.readLine();
       String wordTwo = txt.readLine();
       
@@ -72,18 +68,13 @@ public class Solution {
       } else {
         System.out.println(NOT_ANAGRAMS);
       }
-    } catch (FileNotFoundException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
     } catch (IOException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     } finally {
       if(txt != null) {
         try {
           txt.close();
         } catch (IOException e) {
-          // TODO Auto-generated catch block
           e.printStackTrace();
         }
       }
